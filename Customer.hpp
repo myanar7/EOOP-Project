@@ -8,8 +8,6 @@ private:
     string email;
     string phoneNumber;
     const time_t registerDate = time(0);
-    //list<Order> orderHistory; içinde de order tarihi veren satıcı alan müşteri bilgileri falan olsun miktar işlem kayıt no
-    
 public:
     Person* identify;
     Customer() : identify() , email("Unknown"), phoneNumber("Unknown"){};
@@ -18,5 +16,4 @@ public:
     friend bool operator == (const Customer& customer, const Customer& customer2);
     void setEmail(string _email);
     void setPhoneNumber(string _phoneNumber);
-    //void showOrderHistory();
 };

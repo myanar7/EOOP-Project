@@ -9,9 +9,8 @@ class Pharmacy {
     private:
       string name;
       string address;
-      list<Employee> employees; // eğer başka bi world classı yaparsan bunları değiştir
+      list<Employee> employees;
       list<Customer> customers;
-      //list<Order> pharmacySalesHistory;
     public:
       Pharmacy() : name("Unkown Apteka") {};
       Pharmacy(string _name) : name(_name){};

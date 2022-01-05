@@ -9,7 +9,6 @@ private:
     double salary;
     int startingYearEmployment;
     string address;
-    //list<Order> orderHistory
 public:
     Person* identify;
     Employee() : salary(0.0), startingYearEmployment(0), address("Unknown"){};
@@ -19,5 +18,4 @@ public:
     void raiseSalary(double amount);
     void decreaseSalary(double amount);
     void setAddress(string _address);
-    //void showSalesHistory();
 };

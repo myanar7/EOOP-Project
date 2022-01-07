@@ -1,5 +1,8 @@
 #include "Pharmacy.hpp"
 
+void Pharmacy::addMedicament(string _name, double _price){
+    medicaments.push_back(Medicament(_name,_price,this));
+}
 Employee* Pharmacy::findEmployee(int id){
     Employee* empRef = nullptr;
     for(Employee employee : employees){
@@ -48,7 +51,9 @@ void Pharmacy::hireEmployee(Person& person, double salary, string address){
     employees.push_back(Employee(person,salary,2022,address));
 }
 void Pharmacy::createMembership(Person& person, string email, string phoneNumber){
-    customers.push_back(Customer(person,email,phoneNumber));
+    Customer newCustomer(person,email,phoneNumber);
+    newCustomer.linkWithPharmacy(this);
+    customers.push_back(newCustomer);
 }
 void Pharmacy::removeMembership(Customer& customer){
     Customer cus = customer;

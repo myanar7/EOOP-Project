@@ -1,5 +1,4 @@
 #include <iostream>
-
 #include "Pharmacy.hpp"
 
 int Person::idCounter = 0;
@@ -16,8 +15,10 @@ int main() {
 
    Pharmacy pharmacy1 = Pharmacy("Mustafa");
 
-   pharmacy1.hireEmployee(people.front(),2000.0,"Ebesinin körü");                            // şu index dışında ne olacak onu bi çöz
+   pharmacy1.addMedicament("Parol",20.3);
 
+   pharmacy1.hireEmployee(people.front(),2000.0,"Ebesinin körü");     // şu index dışında ne olacak onu bi çöz
+   
    
    //Employee emp = *empRef;
    //*(empRef->identify) == people.front();
@@ -34,6 +35,11 @@ int main() {
    
    empRef = nullptr;
    cusRef = nullptr;
+
+
+
+
+
    clearScreen();
    return 0;
 }

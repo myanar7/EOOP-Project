@@ -27,14 +27,16 @@ int main() {
    Employee* empRef = pharmacy1.findEmployee(0);
    //pharmacy1.fireEmployee(*empRef);
    
-   pharmacy1.createMembership(people.back(),"mustafayanar0007@gmail.com","+905377094503");
-
+   pharmacy1.createMembership(people.back(),"Initial Mail","+905377094503");
+   Medicament* medicament = new Medicament("Aspirin",10.5,&pharmacy1);
    Customer* cusRef = pharmacy1.findCustomer(5);
-
+   cusRef->setEmail("Mail Changed");
+   cusRef->purchaseMedicament(*medicament);
+   cusRef = pharmacy1.findCustomer(5);
    empRef = pharmacy1.findEmployee(0);
    
    empRef = nullptr;
-   cusRef = nullptr;
+   //cusRef = nullptr;
 
 
 

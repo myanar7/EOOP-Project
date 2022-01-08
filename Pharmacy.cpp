@@ -28,7 +28,7 @@ Customer* Pharmacy::findCustomer(int id){
     for(Customer customer : customers){
         if(id == customer.identify->getID()){
             cusRef = &customer;
-            break;
+            return cusRef;
         }
     }
     return cusRef;

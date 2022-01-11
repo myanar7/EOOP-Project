@@ -1,5 +1,8 @@
 #include "Employee.hpp"
-
+ostream& operator<< (ostream& stream, const Employee& employee){
+    stream<<*(employee.identify)<<"   "<<employee.salary<<endl;
+    return stream;
+}
 bool operator == (const Employee& employee, const Employee& employee2){
     return employee.identify == employee2.identify;
 }

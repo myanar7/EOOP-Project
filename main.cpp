@@ -15,28 +15,38 @@ int main() {
       Person("Can","Bozdogan"),
       Person("Relay","Belly")
    };
+   people[0] == people[3];    // FALSE
 
-   Pharmacy pharmacy1 = Pharmacy("Mustafa","Stare Miasto");
-   pharmacy1.addMedicament("Parol",20.3,11);
-   pharmacy1.addMedicament("Majezik",10.5,3);
+   Pharmacy pharmacy1 = Pharmacy("the Best Pharmacy","Stare Miasto"); // Creates a new Pharmacy
+   pharmacy1.addMedicament("Parol",20.3,11);    // Added Parol to the medicaments list in pharmacy1
+   pharmacy1.addMedicament("Majezik",10.5,3);   // Added Majezik to the medicaments list in pharmacy1
 
 
-   pharmacy1.hireEmployee(people[0],2000.0,"Woloska 141A");     // şu index dışında ne olacak onu bi çöz
+   pharmacy1.hireEmployee(people[0],2000.0,"Woloska 141A"); //Hired a new Employee (people[0])
+   Employee* empRef = pharmacy1.findEmployee(0); // Test of the finding Employee function
+   empRef->raiseSalary(500);     //Test of the raise salary
+   empRef->decreaseSalary(400);     //Test of the decrease salary
+   empRef->setAddress("Mokotow 25");      //Tesht of the setAddress 
+   *(empRef->identify) == people[0];   // Test of the == operator / TRUE
+   cout<<*empRef;                         //Test of the << operator
+   pharmacy1.fireEmployee(*empRef);       // Fired the employee
+
+
+
+   pharmacy1.createMembership(people[4],"mail123@gmail.com","+48685505584");     //Created a new membership ( new customer)
+   Customer* cusRef = pharmacy1.findCustomer(4); // Test of the finding Customer function
+   cusRef->linkWithPharmacy(&pharmacy1);     //Test of the link with pharmacy
+   cusRef->setPhoneNumber("+48685648321");      //Test of the setPhoneNumber function
+   cusRef->setEmail("changedMail@gmail.com");      //Test of the setEmail function
+   cusRef->purchaseMedicament(*(pharmacy1.findMedicament(0)));    // Test of the purchasing function
+   *(cusRef->identify) == people[4];   // Test of the == operator  / TRUE
+   cout<<*cusRef;                                           //Test of the << operator
+   pharmacy1.removeMembership(*cusRef);               // Test of removing the membership
+
    
    
-   //Employee emp = *empRef;
-   //*(empRef->identify) == people.front();
-   //empRef = &emp;
-   
-   Employee* empRef = pharmacy1.findEmployee(0);
-   //pharmacy1.fireEmployee(*empRef);
-   cout<<*empRef;
-   pharmacy1.createMembership(people[4],"Initial Mail","+905377094503");
-   Customer* cusRef = pharmacy1.findCustomer(4);
-   cusRef->setEmail("Mail Changed");
-   cusRef->purchaseMedicament(*(pharmacy1.findMedicament(0)));
-   empRef = pharmacy1.findEmployee(0);
-   
+
+
    empRef = nullptr;
    cusRef = nullptr;
    delete empRef;

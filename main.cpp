@@ -24,24 +24,29 @@ int main() {
 
    pharmacy1.hireEmployee(people[0],2000.0,"Woloska 141A"); //Hired a new Employee (people[0])
    Employee* empRef = pharmacy1.findEmployee(0); // Test of the finding Employee function
-   empRef->raiseSalary(500);     //Test of the raise salary
-   empRef->decreaseSalary(400);     //Test of the decrease salary
-   empRef->setAddress("Mokotow 25");      //Tesht of the setAddress 
-   *(empRef->identify) == people[0];   // Test of the == operator / TRUE
-   cout<<*empRef;                         //Test of the << operator
-   pharmacy1.fireEmployee(*empRef);       // Fired the employee
+   if(empRef != nullptr){
+      empRef->raiseSalary(500);     //Test of the raise salary
+      empRef->decreaseSalary(400);     //Test of the decrease salary
+      empRef->setAddress("Mokotow 25");      //Tesht of the setAddress 
+      *(empRef->identify) == people[0];   // Test of the == operator / TRUE
+      cout<<*empRef;                         //Test of the << operator
+      pharmacy1.fireEmployee(*empRef);       // Fired the employee
+   }
+   
 
 
 
    pharmacy1.createMembership(people[4],"mail123@gmail.com","+48685505584");     //Created a new membership ( new customer)
    Customer* cusRef = pharmacy1.findCustomer(4); // Test of the finding Customer function
-   cusRef->linkWithPharmacy(&pharmacy1);     //Test of the link with pharmacy
-   cusRef->setPhoneNumber("+48685648321");      //Test of the setPhoneNumber function
-   cusRef->setEmail("changedMail@gmail.com");      //Test of the setEmail function
-   cusRef->purchaseMedicament(*(pharmacy1.findMedicament(0)));    // Test of the purchasing function
-   *(cusRef->identify) == people[4];   // Test of the == operator  / TRUE
-   cout<<*cusRef;                                           //Test of the << operator
-   pharmacy1.removeMembership(*cusRef);               // Test of removing the membership
+   if(cusRef!=nullptr){
+      cusRef->linkWithPharmacy(&pharmacy1);     //Test of the link with pharmacy
+      cusRef->setPhoneNumber("+48685648321");      //Test of the setPhoneNumber function
+      cusRef->setEmail("changedMail@gmail.com");      //Test of the setEmail function
+      cusRef->purchaseMedicament(*(pharmacy1.findMedicament(0)));    // Test of the purchasing function
+      *(cusRef->identify) == people[4];   // Test of the == operator  / TRUE
+      cout<<*cusRef;                                           //Test of the << operator
+      pharmacy1.removeMembership(*cusRef);               // Test of removing the membership
+   }
 
    
    

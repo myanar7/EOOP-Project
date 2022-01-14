@@ -1,10 +1,13 @@
 #include "Employee.hpp"
 ostream& operator<< (ostream& stream, const Employee& employee){
-    stream<<*(employee.identify)<<"   "<<employee.salary<<endl;
+    stream<<(Person)employee<<"   "<<employee.salary<<endl;
     return stream;
 }
-bool operator == (const Employee& employee, const Employee& employee2){
-    return employee.identify == employee2.identify;
+bool operator == (Employee& employee,Employee& employee2){
+    return &((Person)employee) == &((Person)employee2);
+}
+void Employee::linkWithPharmacy(Pharmacy& pharmacy){
+    pharmacyWorking = &pharmacy;
 }
 void Employee::raiseSalary(double amount){
     salary += amount;
@@ -14,4 +17,7 @@ void Employee::decreaseSalary(double amount){
 }
 void Employee::setAddress(string _address){
     address = _address;
+}
+Pharmacy* Employee::getPharmacy(){
+    return pharmacyWorking;
 }

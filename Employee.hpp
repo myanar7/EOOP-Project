@@ -2,8 +2,9 @@
 #include <ctime>
 #include <iostream>
 #include "Person.hpp"
-
-class Employee
+#include "Pharmacy.hpp"
+class Pharmacy;
+class Employee : public Person
 {
 private:
     //Salary of the Employee
@@ -12,17 +13,21 @@ private:
     int startingYearEmployment;
     //Address of the Employee
     string address;
+    //Pharmacy which the employee is working for
+    Pharmacy* pharmacyWorking = nullptr;
 public:
-    //Pointer of the person
-    Person* identify;
     //EMPTY-CONSTRUCTOR
     Employee() : salary(0.0), startingYearEmployment(0), address("Unknown"){};
     //CONSTRUCTOR BY CREATING NEW PERSON
-    Employee(string _firstName, string _lastName, double _salary, int _startingYearEmployment, string _address) : identify(new Person(_firstName,_lastName)), salary(_salary), startingYearEmployment(_startingYearEmployment), address(_address){};
+    Employee(string _firstName, string _lastName, double _salary, int _startingYearEmployment, string _address) : Person(_firstName,_lastName), salary(_salary), startingYearEmployment(_startingYearEmployment), address(_address){};
     //COMPLETE CONSTRUCTOR
-    Employee(Person& person, double _salary, int _startingYearEmployment, string _address) : identify(&person), salary(_salary), startingYearEmployment(_startingYearEmployment), address(_address){};
+    Employee(Person& person, double _salary, int _startingYearEmployment, string _address) : Person(person), salary(_salary), startingYearEmployment(_startingYearEmployment), address(_address){};
     //OVERLOADING == OPERATOR
-    friend bool operator == (const Employee& employee, const Employee& employee2);
+    friend bool operator == (Employee& employee, Employee& employee2);
+    //Getter of the pharmacy which the employee is working for
+    Pharmacy* getPharmacy();
+    //Setter of the pharmacy which the employee is working for
+    void linkWithPharmacy(Pharmacy& pharmacy);
     //OVERLOADING << OPERATOR TO PRINT THE EMPLOYEE
     friend ostream& operator<< (ostream& stream, const Employee& employee);
     //Raise Salary (salary+amount)

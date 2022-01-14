@@ -7,7 +7,7 @@
 #include "Medicament.hpp"
 class Medicament;
 class Customer;
-
+class Employee;
 
 class Pharmacy {
     private:
@@ -16,11 +16,11 @@ class Pharmacy {
     //Address of the Pharmacy
       string address;
     //List of the employees of the pharmacy
-      list<Employee> employees;
+      list<Employee*> employees;
     //List of the members (having membership) of the pharmacy
-      list<Customer> customers;
+      list<Customer*> customers;
     //List of the medicament stock of the pharmacy
-      list<Medicament> medicaments;
+      list<Medicament*> medicaments;
     public:
     //EMPTY CONSTRUCTOR
       Pharmacy() : name("Unkown Apteka") {};
@@ -45,7 +45,7 @@ class Pharmacy {
     //Fire the employee by the reference
       void fireEmployee(Employee& employee);
     //Hire a new employee by the person reference, Create a new Employee
-      void hireEmployee(Person& person, double salary, string address);
+      void hireEmployee(Employee& employee, double salary);
     //Create a new membership by the person reference, Create a new Customer
       void createMembership(Person& person, string email, string phoneNumber);
     //Remove the customer by the reference

@@ -7,7 +7,7 @@
 
 class Pharmacy;
 
-class Customer
+class Customer : public Person
 {
 private:
     //Email address of the customer
@@ -19,22 +19,20 @@ private:
     //List of the pointers of the  medicaments which customer has
     list<Medicament*> medicaments;
     //Pointer of the pharmacy which the customer has the membership from
-    Pharmacy* pharmacyRegistered;
+    list<Pharmacy*> pharmacyRegistered;
 public:
-    //Pointer of the person
-    Person* identify;
     //EMPTY CONSTRUCTOR
-    Customer() : identify() , email("Unknown"), phoneNumber("Unknown"){};
+    Customer() : email("Unknown"), phoneNumber("Unknown"){};
     //CONSTRUCTOR BY CREATING NEW PERSON
-    Customer(string _firstName, string _lastName, string _email, string _phoneNumber): identify(new Person(_firstName,_lastName)), email(_email), phoneNumber(_phoneNumber){};
+    Customer(string _firstName, string _lastName, string _email, string _phoneNumber): Person(_firstName,_lastName), email(_email), phoneNumber(_phoneNumber){};
     //COMPLETE CONSTURCTOR
-    Customer(Person& person, string _email, string _phoneNumber): identify(&person), email(_email), phoneNumber(_phoneNumber){};
+    Customer(Person& person, string _email, string _phoneNumber): Person(person), email(_email), phoneNumber(_phoneNumber){};
     //OVERLOADING == OPERATOR
-    friend bool operator == (const Customer& customer, const Customer& customer2);
+    friend bool operator == (Customer& customer, Customer& customer2);
     //OVERLOADING << OPERATOR TO PRINT DETAILS
     friend ostream& operator<< (ostream& stream, const Customer& customer);
     //Setter of the Pharmacy Registered
-    void linkWithPharmacy(Pharmacy* pharmacy);
+    void linkWithPharmacy(Pharmacy& pharmacy);
     //Setter of the email
     void setEmail(string _email);
     //Setter of the phone number

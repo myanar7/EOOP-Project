@@ -1,13 +1,13 @@
 #include "Customer.hpp"
-bool operator == (Customer& customer,Customer& customer2){
-return (Person&)customer == (Person&)customer2;
-}
 ostream& operator<< (ostream& stream, const Customer& customer){
     stream<<(Person)customer<<" "<<customer.email<<endl;
     return stream;
 }
 void Customer::linkWithPharmacy(Pharmacy& pharmacy){
     pharmacyRegistered.push_back(&pharmacy);
+}
+void Customer::unlinkWithPharmacy(Pharmacy& pharmacy){
+    pharmacyRegistered.remove(&pharmacy);
 }
 void Customer::setEmail(string _email){
     email = _email;

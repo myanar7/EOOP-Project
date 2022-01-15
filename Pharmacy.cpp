@@ -1,4 +1,5 @@
 #include "Pharmacy.hpp"
+
 ostream& operator<< (ostream& stream, const Pharmacy& pharmacy){
     stream<<pharmacy.name<<"   "<<pharmacy.address<<endl;
     return stream;
@@ -61,24 +62,42 @@ Medicament* Pharmacy::findMedicament(Medicament& medicament2){
 
 }
 void Pharmacy::fireEmployee(Employee& employee){
-    Employee emp = employee;
-    this->employees.remove(&emp);
+    this->employees.remove(&employee);
+    employee.unlinkWithPharmacy();
 }
 void Pharmacy::hireEmployee(Employee& employee, double salary){
     if(employee.getPharmacy() == nullptr && findEmployee(employee) == nullptr){
-        employee.decreaseSalary(salary);
+        employee.setSalary(salary);
         employee.linkWithPharmacy(*this);
         employees.push_back(&employee);
     }
 }
-void Pharmacy::createMembership(Person& person, string email, string phoneNumber){
-    Customer newCustomer(person,email,phoneNumber);
-    if(findCustomer(newCustomer) == nullptr){
-        newCustomer.linkWithPharmacy(*this);
-        customers.push_back(&newCustomer);
+void Pharmacy::createMembership(Customer& customer){
+    if(findCustomer(customer) == nullptr){
+        customer.linkWithPharmacy(*this);
+        customers.push_back(&customer);
     }
 }
 void Pharmacy::removeMembership(Customer& customer){
-    Customer cus = customer;
-    this->customers.remove(&cus);
+    this->customers.remove(&customer);
+    customer.unlinkWithPharmacy(*this);
+}
+
+template <class T>  
+// Template overloading of function
+void displayList(list<T> const & list, string titleOfList)
+{
+    cout<< "--------- "<< titleOfList <<" ---------"<<"\n"<<"\n";
+    for (auto const &i: list) {
+        cout << *i << endl;
+    }
+}
+void Pharmacy::printEmployees(){
+    displayList(employees,"Employees");
+}
+void Pharmacy::printCustomers(){
+    displayList(customers,"Customers");
+}
+void Pharmacy::printMedicaments(){
+    displayList(medicaments,"Medicaments");
 }

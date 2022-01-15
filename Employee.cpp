@@ -3,11 +3,14 @@ ostream& operator<< (ostream& stream, const Employee& employee){
     stream<<(Person)employee<<"   "<<employee.salary<<endl;
     return stream;
 }
-bool operator == (Employee& employee,Employee& employee2){
-    return ((Person&)employee) == ((Person&)employee2);
-}
 void Employee::linkWithPharmacy(Pharmacy& pharmacy){
     pharmacyWorking = &pharmacy;
+}
+void Employee::unlinkWithPharmacy(){
+    pharmacyWorking = nullptr;
+}
+void Employee::setSalary(double amount){
+    salary = amount;
 }
 void Employee::raiseSalary(double amount){
     salary += amount;

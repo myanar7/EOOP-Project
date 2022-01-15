@@ -47,7 +47,13 @@ class Pharmacy {
     //Hire a new employee by the person reference, Create a new Employee
       void hireEmployee(Employee& employee, double salary);
     //Create a new membership by the person reference, Create a new Customer
-      void createMembership(Person& person, string email, string phoneNumber);
+      void createMembership(Customer& customer);
     //Remove the customer by the reference
       void removeMembership(Customer& customer);
+    //Print the employee list
+      void printEmployees();
+    //Print the customers list
+      void printCustomers();
+    //Print the medicaments list
+      void printMedicaments();
 };

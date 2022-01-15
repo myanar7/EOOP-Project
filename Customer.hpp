@@ -27,12 +27,12 @@ public:
     Customer(string _firstName, string _lastName, string _email, string _phoneNumber): Person(_firstName,_lastName), email(_email), phoneNumber(_phoneNumber){};
     //COMPLETE CONSTURCTOR
     Customer(Person& person, string _email, string _phoneNumber): Person(person), email(_email), phoneNumber(_phoneNumber){};
-    //OVERLOADING == OPERATOR
-    friend bool operator == (Customer& customer, Customer& customer2);
     //OVERLOADING << OPERATOR TO PRINT DETAILS
     friend ostream& operator<< (ostream& stream, const Customer& customer);
-    //Setter of the Pharmacy Registered
+    //Setter of the Pharmacy Registered (Inserting)
     void linkWithPharmacy(Pharmacy& pharmacy);
+    //Setter of the Pharmacy Registered (Removing)
+    void unlinkWithPharmacy(Pharmacy& pharmacy);
     //Setter of the email
     void setEmail(string _email);
     //Setter of the phone number

@@ -4,7 +4,7 @@ ostream& operator<< (ostream& stream, const Employee& employee){
     return stream;
 }
 bool operator == (Employee& employee,Employee& employee2){
-    return &((Person)employee) == &((Person)employee2);
+    return ((Person&)employee) == ((Person&)employee2);
 }
 void Employee::linkWithPharmacy(Pharmacy& pharmacy){
     pharmacyWorking = &pharmacy;

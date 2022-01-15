@@ -9,7 +9,7 @@ int main() {
 
    Employee employees[] = {
        Employee("Ugurcan","Cakir",2000.0,2018,"Random Place"),
-       Employee("Miralem","Pjanic",3000.0,2018,"Random Plase"),
+       Employee("Miralem","Pjanic",3000.0,2018,"Random Placee"),
    };
 
    Pharmacy pharmacy1 = Pharmacy("the Best Pharmacy","Warsaw"); // Creates a new Pharmacy

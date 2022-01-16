@@ -1,4 +1,6 @@
 #include "Customer.hpp"
+#include "Utilities.hpp"
+
 ostream& operator<< (ostream& stream, const Customer& customer){
     stream<<(Person)customer<<" "<<customer.email<<endl;
     return stream;
@@ -17,4 +19,7 @@ void Customer::setPhoneNumber(string _phoneNumber){
 }
 void Customer::purchaseMedicament(Medicament& medicament){
     medicaments.push_back(&medicament);
+}
+void Customer::printPharmacies(){
+    displayList(pharmacyRegistered,"Pharmacies");
 }

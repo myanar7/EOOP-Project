@@ -23,6 +23,8 @@ public:
     Person(string _firstName,string _lastName):firstName(_firstName), lastName(_lastName), id(idCounter){idCounter++;};
     //OVERLOADING == OPERATOR
     friend bool operator== (Person& otherPerson, Person& otherPerson2);
+    //OVERLOADING == OPERATOR BY INT
+    friend bool operator== (Person& otherPerson, int id);
     //OVERLOADING << OPERATOR TO PRINT CONTENT
     friend ostream& operator<< (ostream& stream, const Person& person);
     //Getter of ID for public access

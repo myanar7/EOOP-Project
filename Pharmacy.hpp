@@ -39,7 +39,7 @@ class Pharmacy {
     //Finding customer by the reference
       Customer* findCustomer(Customer& customer);
     //Finding medicament by ID
-      Medicament* findMedicament(int index);
+      Medicament* findMedicament(int id);
     //Finding medicament by the reference
       Medicament* findMedicament(Medicament& medicament);
     //Fire the employee by the reference

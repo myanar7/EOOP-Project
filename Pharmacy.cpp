@@ -1,4 +1,5 @@
 #include "Pharmacy.hpp"
+#include "Utilities.hpp"
 
 ostream& operator<< (ostream& stream, const Pharmacy& pharmacy){
     stream<<pharmacy.name<<"   "<<pharmacy.address<<endl;
@@ -10,56 +11,22 @@ void Pharmacy::addMedicament(string _name, double _price, int _productID){
     medicaments.push_back(newMedicament);
 }
 Employee* Pharmacy::findEmployee(int id){
-    for(Employee*& employee : employees){
-        if(id == employee->getID()){
-            return employee;
-        }
-    }
-    return nullptr;
+    return findObject(id,employees);
 }
 Employee* Pharmacy::findEmployee(Employee& employee){
-    for(Employee*& employee2 : employees){
-        if(employee == *employee2){
-            return employee2;
-        }
-    }
-    return nullptr;
+    return findObject(employee,employees);
 }
 Customer* Pharmacy::findCustomer(int id){
-    for(Customer*& customer : customers){
-        if(id == customer->getID()){
-            return customer;
-        }
-    }
-    return nullptr;
+    return findObject(id,customers);
 }
 Customer* Pharmacy::findCustomer(Customer& customer){
-    for(Customer*& customer2 : customers){
-        if(customer == *customer2){
-            return &customer;
-        }
-    }
-    return nullptr;
+    return findObject(customer,customers);
 }
-Medicament* Pharmacy::findMedicament(int index){
-    int iterator = 0;
-    for(Medicament*& medicament : medicaments){
-        if(index == iterator){
-            return medicament;
-        }else{
-            iterator++;
-        }
-    }
-    return nullptr;
+Medicament* Pharmacy::findMedicament(int id){
+    return findObject(id,medicaments);
 }
 Medicament* Pharmacy::findMedicament(Medicament& medicament2){
-    for(Medicament*& medicament : medicaments){
-        if(medicament2 == *medicament){
-            return medicament;
-        }
-    }
-    return nullptr;
-
+    return findObject(medicament2,medicaments);
 }
 void Pharmacy::fireEmployee(Employee& employee){
     this->employees.remove(&employee);
@@ -81,16 +48,6 @@ void Pharmacy::createMembership(Customer& customer){
 void Pharmacy::removeMembership(Customer& customer){
     this->customers.remove(&customer);
     customer.unlinkWithPharmacy(*this);
-}
-
-template <class T>  
-// Template overloading of function
-void displayList(list<T> const & list, string titleOfList)
-{
-    cout<< "--------- "<< titleOfList <<" ---------"<<"\n"<<"\n";
-    for (auto const &i: list) {
-        cout << *i << endl;
-    }
 }
 void Pharmacy::printEmployees(){
     displayList(employees,"Employees");

@@ -6,6 +6,9 @@ ostream& operator<< (ostream& stream, const Person& person){
 bool operator==(Person& otherPerson, Person& otherPerson2){
     return otherPerson.getID() == otherPerson2.getID();
 }
+bool operator==(Person& otherPerson, int id){
+    return otherPerson.getID() == id;
+}
 int Person::getID(){
     return id;
 }

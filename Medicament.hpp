@@ -25,6 +25,8 @@ class Medicament{
         friend ostream& operator<< (ostream& stream, const Medicament& medicament){stream<<medicament.name<<" "<<medicament.price<<" "<<medicament.productID<<endl;return stream;};
         //OVERLOADING == OPERATOR
         friend bool operator == (const Medicament& medicament, const Medicament& medicament2){return medicament.productID == medicament2.productID;};
+
+        friend bool operator == (const Medicament& medicament, int id){return medicament.productID == id;};
         //Getter of the price variable for public access
         double getPrice() {return price;};
 

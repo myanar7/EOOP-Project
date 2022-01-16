@@ -40,4 +40,5 @@ public:
     //Purchasing the medicament
     void purchaseMedicament(Medicament& medicament);
 
+    void printPharmacies();
 };

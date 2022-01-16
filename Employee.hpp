@@ -22,6 +22,8 @@ public:
     Employee(string _firstName, string _lastName, double _salary, int _startingYearEmployment, string _address) : Person(_firstName,_lastName), salary(_salary), startingYearEmployment(_startingYearEmployment), address(_address){};
     //COMPLETE CONSTRUCTOR
     Employee(Person& person, double _salary, int _startingYearEmployment, string _address) : Person(person), salary(_salary), startingYearEmployment(_startingYearEmployment), address(_address){};
+
+    ~Employee();
     //Getter of the pharmacy which the employee is working for
     Pharmacy* getPharmacy();
     //Setter of the pharmacy which the employee is working for

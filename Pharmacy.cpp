@@ -1,6 +1,13 @@
 #include "Pharmacy.hpp"
 #include "Utilities.hpp"
 
+Pharmacy::~Pharmacy(){
+    name.clear();
+    address.clear();
+    employees.clear();
+    medicaments.clear();
+    customers.clear();
+}
 ostream& operator<< (ostream& stream, const Pharmacy& pharmacy){
     stream<<pharmacy.name<<"   "<<pharmacy.address<<endl;
     return stream;

@@ -26,6 +26,8 @@ class Pharmacy {
       Pharmacy() : name("Unkown Apteka") {};
     //CONSTRUCTOR
       Pharmacy(string _name, string _address) : name(_name), address(_address){};
+
+      ~Pharmacy();
     //OVERLOADING FOR PRINT THE CLASS
       friend ostream& operator<< (ostream& stream, const Pharmacy& pharmacy);
     //Add a new medicament to the list

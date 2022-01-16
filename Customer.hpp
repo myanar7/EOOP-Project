@@ -27,6 +27,8 @@ public:
     Customer(string _firstName, string _lastName, string _email, string _phoneNumber): Person(_firstName,_lastName), email(_email), phoneNumber(_phoneNumber){};
     //COMPLETE CONSTURCTOR
     Customer(Person& person, string _email, string _phoneNumber): Person(person), email(_email), phoneNumber(_phoneNumber){};
+
+    ~Customer();
     //OVERLOADING << OPERATOR TO PRINT DETAILS
     friend ostream& operator<< (ostream& stream, const Customer& customer);
     //Setter of the Pharmacy Registered (Inserting)

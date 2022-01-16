@@ -1,4 +1,11 @@
 #include "Employee.hpp"
+Employee::~Employee(){
+    salary = 0.0;
+    startingYearEmployment = 0;
+    address.clear();
+    pharmacyWorking = nullptr;
+    delete pharmacyWorking;
+}
 ostream& operator<< (ostream& stream, const Employee& employee){
     stream<<(Person)employee<<"   "<<employee.salary<<endl;
     return stream;

@@ -1,6 +1,12 @@
 #include "Customer.hpp"
 #include "Utilities.hpp"
 
+Customer::~Customer(){
+    email.clear();
+    phoneNumber.clear();
+    medicaments.clear();
+    pharmacyRegistered.clear();
+}
 ostream& operator<< (ostream& stream, const Customer& customer){
     stream<<(Person)customer<<" "<<customer.email<<endl;
     return stream;

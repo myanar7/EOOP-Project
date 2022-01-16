@@ -27,5 +27,8 @@ void Customer::purchaseMedicament(Medicament& medicament){
     medicaments.push_back(&medicament);
 }
 void Customer::printPharmacies(){
-    displayList(pharmacyRegistered,"Pharmacies");
+    displayList(pharmacyRegistered,"Pharmacies Which The Customer Registered");
+}
+void Customer::printMedicaments(){
+    displayList(medicaments,"Medicaments Of The Customer");
 }

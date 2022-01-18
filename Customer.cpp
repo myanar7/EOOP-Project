@@ -32,3 +32,8 @@ void Customer::printPharmacies(){
 void Customer::printMedicaments(){
     displayList(medicaments,"Medicaments Of The Customer");
 }
+bool Customer::HasMembership(Pharmacy& pharmacy){
+    if(pharmacy.findCustomer(*this) == nullptr)
+        return false;
+    return true;
+}

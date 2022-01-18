@@ -10,6 +10,7 @@ template <class T>
 //!!!!!!!!!!!!!!!!! NULLITY KONTROL ETTIGINDEN EMIN OL !!!!!!!!!!!!!!!!!!!
 void displayList(list<T> const & list, string titleOfList)
 {
+    if(list.empty()) return;
     cout<< "--------- "<< titleOfList <<" ---------"<<"\n"<<"\n";
     for (auto const &i: list) {
         cout << *i << endl;

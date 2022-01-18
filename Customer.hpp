@@ -45,4 +45,10 @@ public:
     void printPharmacies();
 
     void printMedicaments();
+    //Check is empty or not
+    bool isEmptyMedicaments() {return medicaments.empty();};
+    //Check is empty or not
+    bool isEmptyPharmacies() {return pharmacyRegistered.empty();};
+
+    bool HasMembership(Pharmacy& pharmacy);
 };

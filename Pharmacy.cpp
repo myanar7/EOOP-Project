@@ -14,7 +14,7 @@ ostream& operator<< (ostream& stream, const Pharmacy& pharmacy){
 }
 void Pharmacy::addMedicament(string _name, double _price, int _productID){
     Medicament*  newMedicament = new Medicament(_name,_price,this,_productID);
-    if(findMedicament(*newMedicament) == nullptr)
+    if(findMedicament(_productID) == nullptr)
     medicaments.push_back(newMedicament);
 }
 Employee* Pharmacy::findEmployee(int id){
@@ -36,6 +36,7 @@ Medicament* Pharmacy::findMedicament(Medicament& medicament2){
     return findObject(medicament2,medicaments);
 }
 void Pharmacy::fireEmployee(Employee& employee){
+    if(&employee == nullptr) return;
     this->employees.remove(&employee);
     employee.unlinkWithPharmacy();
 }
@@ -53,6 +54,7 @@ void Pharmacy::createMembership(Customer& customer){
     }
 }
 void Pharmacy::removeMembership(Customer& customer){
+    if(&customer == nullptr) return;
     this->customers.remove(&customer);
     customer.unlinkWithPharmacy(*this);
 }

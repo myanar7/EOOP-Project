@@ -58,4 +58,10 @@ class Pharmacy {
       void printCustomers();
     //Print the medicaments list
       void printMedicaments();
+    //Check is empty or not
+      bool isEmptyMedicaments() {return medicaments.empty();};
+    //Check is empty or not
+      bool isEmptyCustomers() {return customers.empty();};
+    //Check is empty or not
+      bool isEmptyEmployees() {return employees.empty();};
 };

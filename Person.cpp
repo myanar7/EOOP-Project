@@ -1,6 +1,6 @@
 #include "Person.hpp"
 ostream& operator<< (ostream& stream, const Person& person){
-    stream<<person.firstName<<"   "<<person.lastName<<" "<<person.id;
+    stream<<"Name:"<<person.firstName<<" "<<person.lastName<<"  | ID:"<<person.id;
     return stream;
 }
 bool operator==(Person& otherPerson, Person& otherPerson2){

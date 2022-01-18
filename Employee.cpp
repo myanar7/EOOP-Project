@@ -7,7 +7,7 @@ Employee::~Employee(){
     delete pharmacyWorking;
 }
 ostream& operator<< (ostream& stream, const Employee& employee){
-    stream<<(Person)employee<<"   "<<employee.salary<<endl;
+    stream<<(Person)employee<<" | Salary:"<<employee.salary<<endl;
     return stream;
 }
 void Employee::linkWithPharmacy(Pharmacy& pharmacy){

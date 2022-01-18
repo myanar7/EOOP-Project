@@ -22,7 +22,7 @@ class Medicament{
         //CONSTRUCTOR
         Medicament(string _name, double _price, Pharmacy* _stored, int _productID): name(_name), price(_price), stored(_stored), productID(_productID) {};
         //OVERLOADING << OPERATOR TO PRINT THE DETAILS
-        friend ostream& operator<< (ostream& stream, const Medicament& medicament){stream<<medicament.name<<" "<<medicament.price<<" "<<medicament.productID<<endl;return stream;};
+        friend ostream& operator<< (ostream& stream, const Medicament& medicament){stream<<"Product Name:"<<medicament.name<<" | Price:"<<medicament.price<<" | Product ID:"<<medicament.productID<<endl;return stream;};
         //OVERLOADING == OPERATOR
 
         friend bool operator == (const Medicament& medicament, const Medicament& medicament2){return medicament.productID == medicament2.productID;};

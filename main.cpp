@@ -8,12 +8,17 @@ int main() {
 
 
    Employee employees[] = {
-      Employee("Ugurcan","Cakir",3000.0,2018,"Random Place"),
-      Employee("Miralem","Pjanic",3000.0,2018,"Random Placee"),
+      Employee("Ugurcan","Cakir",3000.0,2018,"Wolosko 48"),
+      Employee("Miralem","Pjanic",3000.0,2015,"Rakowiecka 12"),
+      Employee("Selami","Patetes",3000.0,2013,"Rondo 66"),
    };
    Customer customers[] = {
       Customer("Necip","Uysal","necipuysal@gmail.com","+43556815562"),
-      Customer("Domagoj","Vida","vidadomagoj@gmail.com","+54521547525")
+      Customer("Domagoj","Vida","vidadomagoj@gmail.com","+54521547525"),
+      Customer("Cenk","Tosun","tosuncenk23@gmail.com","+435421562"),
+      Customer("Valentine","Rosier","rosiervalentinn97@gmail.com","+52215479"),
+      Customer("Dorukhan","Tokoz","dorukhan07@gmail.com","+541255726"),
+      Customer("Mert","Nobre","mertnobree1903@gmail.com","+451585215")
    };
 
    Pharmacy pharmacy1 = Pharmacy("the Best Pharmacy","Warsaw"); // Creates a new Pharmacy
@@ -67,7 +72,7 @@ int main() {
             clearScreen();
             break;
          }else if(choice == 2){
-            for (int i = 0; i < 2; i++) 
+            for (int i = 0; i < sizeof(employees)/sizeof(employees[0]); i++) 
                cout <<i+1<<". "<<employees[i];
             double salary;
             cout<<"Choose Employee(By Index):";
@@ -110,9 +115,9 @@ int main() {
       case 2:
       {
          cout<<"------ Customer Panel ------ \n\nSelect Customer: \n";
-         for (int i = 0; i < 2; i++) 
+         for (int i = 0; i < sizeof(customers)/sizeof(customers[0]); i++) 
                cout <<i+1<<". "<<customers[i];
-         cout<<"\nEnter your choice:(1-2) :";
+         cout<<"\nEnter your choice:(By Index) :";
          cin>>choice;
          clearScreen();
          Customer* customerPtr = &customers[choice-1];
@@ -204,7 +209,7 @@ int main() {
 
       pharmacy1.printEmployees();
 
-      (pharmacy2.findCustomer(3))->printPharmacies(); // you must check nullity when use
+      (pharmacy2.findCustomer(4))->printPharmacies(); // you must check nullity when use
 
       pharmacy1.addMedicament("Parol",20.3,11);    // Added Parol to the medicaments list in pharmacy1
       pharmacy1.addMedicament("Majezik",10.5,3);   // Added Majezik to the medicaments list in pharmacy1
@@ -213,11 +218,11 @@ int main() {
 
       pharmacy1.printMedicaments();
 
-      (pharmacy2.findCustomer(3))->purchaseMedicament(*pharmacy2.findMedicament(3));
+      (pharmacy2.findCustomer(4))->purchaseMedicament(*pharmacy2.findMedicament(3));
 
-      (pharmacy2.findCustomer(3))->printPharmacies();
+      (pharmacy2.findCustomer(4))->printPharmacies();
 
-      (pharmacy2.findCustomer(3))->printMedicaments();
+      (pharmacy2.findCustomer(4))->printMedicaments();
 
       cout<<"Leave(1) or Return to the menu(0):";
       cin>>choice;

@@ -8,7 +8,7 @@ Customer::~Customer(){
     pharmacyRegistered.clear();
 }
 ostream& operator<< (ostream& stream, const Customer& customer){
-    stream<<(Person)customer<<" "<<customer.email<<endl;
+    stream<<(Person)customer<<"| Email:"<<customer.email<<endl;
     return stream;
 }
 void Customer::linkWithPharmacy(Pharmacy& pharmacy){

@@ -155,7 +155,7 @@ int main() {
                      break;
                   }
                   pharmacyPtr->printMedicaments();
-                  cout<<"Choose Employee(By Product ID):";
+                  cout<<"Choose Medicament(By Product ID):";
                   cin>>choice;
                   clearScreen();
                   customerPtr->purchaseMedicament(*pharmacyPtr->findMedicament(choice));

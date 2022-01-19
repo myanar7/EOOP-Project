@@ -41,14 +41,14 @@ void Pharmacy::fireEmployee(Employee& employee){
     employee.unlinkWithPharmacy();
 }
 void Pharmacy::hireEmployee(Employee& employee, double salary){
-    if(employee.getPharmacy() == nullptr && findEmployee(employee) == nullptr){
+    if(employee.getPharmacy() == nullptr && findEmployee(employee) == nullptr && &employee != nullptr){
         employee.setSalary(salary);
         employee.linkWithPharmacy(*this);
         employees.push_back(&employee);
     }
 }
 void Pharmacy::createMembership(Customer& customer){
-    if(findCustomer(customer) == nullptr){
+    if(findCustomer(customer) == nullptr && &customer != nullptr){
         customer.linkWithPharmacy(*this);
         customers.push_back(&customer);
     }

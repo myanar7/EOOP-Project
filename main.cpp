@@ -120,6 +120,7 @@ int main() {
          cout<<"\nEnter your choice:(By Index) :";
          cin>>choice;
          clearScreen();
+         if(choice > sizeof(customers)/sizeof(customers[0])) break;
          Customer* customerPtr = &customers[choice-1];
          
          cout<<"------ Customer Panel ------ \n\n"<<*customerPtr<<"\n\nWhat do you want to do ?: \n1. Set Email\n2. Set Phone Number\n3. Purchase Medicament\n4. Print Medicaments\n5. Print Pharmacies which is already registired\nEnter your choice:(1-2-3-4-5) :";
@@ -155,7 +156,7 @@ int main() {
                      break;
                   }
                   pharmacyPtr->printMedicaments();
-                  cout<<"Choose Medicament(By Product ID):";
+                  cout<<"Choose Employee(By Product ID):";
                   cin>>choice;
                   clearScreen();
                   customerPtr->purchaseMedicament(*pharmacyPtr->findMedicament(choice));
